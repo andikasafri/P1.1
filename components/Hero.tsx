@@ -1,6 +1,12 @@
 import React from "react";
 import { Spotlight } from "./ui/spotlight-new";
 import { cn } from "../lib/utils";
+import { TextGenerateEffect } from "./ui/text-generate-effect";
+import ClientOnly from "./ClientOnly";
+import MagicButton from "./ui/MagicButton";
+import { IconBriefcase } from "@tabler/icons-react";
+
+const words = `Andika Safri | Software Engineer | Full Stack Developer | UI/UX Designer`;
 
 const Hero = () => {
   return (
@@ -29,8 +35,21 @@ const Hero = () => {
               className="uppercase tracking-widest text-xs text-blue-100 
                          drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
             >
-              Dynamic Web Magic with Next.js
+              Dynamic Web magic with nextjs
+              <TextGenerateEffect
+                className="text-center text-[40px]
+                md:text=5xl lg:text-6xl"
+                words={words}
+                duration={0.5}
+                filter={false}
+              />
+              <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
+                Hi, I&apos;m Andika, a Backend Developer based in Jakarta
+              </p>
             </h2>
+
+            {/* <MagicButton href="#about" title="Show My Work" /> */}
+            <MagicButton />
           </div>
         </div>
       </div>
