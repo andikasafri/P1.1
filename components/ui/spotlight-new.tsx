@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 type SpotlightProps = {
@@ -25,6 +25,16 @@ export const Spotlight = ({
   duration = 7,
   xOffset = 100,
 }: SpotlightProps = {}) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null; // Avoid rendering animations on the server
+  }
+
   return (
     <motion.div
       initial={{
